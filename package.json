@@ -4,7 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "cy:open": "cypress open",
+    "cy:run": "cypress run",
+    "report:merge": "npx mochawesome-merge cypress/reports/*.json > cypress/reports/mochawesome.json",
+    "report:generate": "npx marge cypress/reports/mochawesome.json --reportDir cypress/reports/html",
+    "cy:report": "npm run cy:run && npm run report:merge && npm run report:generate"
   },
   "keywords": [],
   "author": "",
