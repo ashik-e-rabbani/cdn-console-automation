@@ -35,3 +35,17 @@ Cypress.on('uncaught:exception', (err, runnable) => {
   return true;
 });
 
+Cypress.Commands.add('login', () => {
+  cy.visit('/');
+
+  cy.origin(Cypress.env('originUrl'), () => {
+    cy.get('#username').should('be.visible').type(Cypress.env('username'));
+    cy.get('#password').should('be.visible').type(Cypress.env('password'));
+    cy.get('#kc-login').click();
+  });
+
+  // Optional: assert redirection
+  cy.url().should('include', '/console');
+});
+
+
