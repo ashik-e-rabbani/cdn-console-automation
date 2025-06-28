@@ -8,9 +8,9 @@ module.exports = defineConfig({
   requestTimeout: 10000,
   reporter: 'cypress-mochawesome-reporter',
   reporterOptions: {
-    reportDir: 'cypress/reports/html',
+    reportDir: 'cypress/reports',
     overwrite: false,
-    html: true,
+    html: false,
     json: true,
     timestamp: 'ddmmyyyy_HHMMss',
   },

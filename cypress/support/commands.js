@@ -28,7 +28,9 @@ Cypress.on('uncaught:exception', (err, runnable) => {
   // Handle known, non-breaking exceptions
   if (
     err.message.includes('messaging/permission-blocked') ||
-    err.message.includes('Registration failed - push service not available')
+    err.message.includes('Registration failed - push service not available') ||
+    err.message.includes("Subscription failed - no active Service Worker") ||
+    err.message.includes("Failed to execute 'subscribe' on 'PushManager'")
   ) {
     return false;
   }
